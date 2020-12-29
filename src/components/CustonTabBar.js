@@ -1,5 +1,5 @@
-import React,{useContext} from 'react'
-import {UserContext} from '../contexts/UserContext'
+import React, { useContext } from 'react'
+import { UserContext } from '../contexts/UserContext'
 import styled from 'styled-components/native'
 
 import CpfIcon from '../assets/cpf.svg'
@@ -30,7 +30,16 @@ const TabItemCenter = styled.TouchableOpacity`
     margin-top: -20px;
 `;
 
+const AvatarIcon = styled.Image`
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+`;
+
 export default ({ state, navigation }) => {
+
+    const { state: user } = useContext(UserContext);
+
 
     const goTo = (screenName) => {
         navigation.navigate(screenName);
@@ -46,8 +55,12 @@ export default ({ state, navigation }) => {
                 <EmailIcon width="32" height="32" fill="#4EADBE" />
             </TabItemCenter>
             <TabItem onPress={() => goTo('Profile')}>
-                <LockIcon style={{ opacity: state.index === 2 ? 1 : 0.5 }}
+                {user.avatar != '' ?
+                    <AvatarIcon source={{ uri: user.avatar }} style={{ opacity: state.index === 2 ? 1 : 0.5 }}
                     width="24" height="24" fill="#FFFFFF" />
+                    :
+                    <LockIcon style={{ opacity: state.index === 2 ? 1 : 0.5 }}
+                        width="24" height="24" fill="#FFFFFF" />}
             </TabItem>
         </TabArea>
     )
