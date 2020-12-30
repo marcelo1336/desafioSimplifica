@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext} from 'react'
 import {useNavigation} from '@react-navigation/native'
 import {
     Container,
@@ -27,7 +27,7 @@ export default () => {
     const navigation = useNavigation();
 
     const [nameField, setNameField] = useState('');
-    const [emailField, setEmailField] = useState('teste');
+    const [emailField, setEmailField] = useState('');
     const [passwordField, setPassordField] = useState('');
 
     const handleMessageButtonClick = () => {
@@ -37,8 +37,9 @@ export default () => {
     }
 
     const handleSignClick = async () => {
-        if(nameiFeld != '' && emailField != '' && passwordField != '' ){
+        if(nameField != '' && emailField != '' && passwordField != '' ){
             let res = await Api.signUp(nameField, emailField, passwordField)
+            console.log(res)
 
             if(res.token){
                 await AsyncStorage.setItem('token', res.token);
@@ -69,8 +70,8 @@ export default () => {
             <InputArea>
 
                 <SignInput IconSvg={CpfIcon}
-                    placeholder="Digite seu CPF"
-                    value={cpfField}
+                    placeholder="Digite seu Nome"
+                    value={nameField}
                     onChangeText={t => setNameField(t)}
                 />
 

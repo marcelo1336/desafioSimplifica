@@ -38,6 +38,20 @@ export default {
         const json = await req.json();
         return json;
     },
+    logout: async () => {
+      const token = await AsyncStorage.getItem('token')  ;
+
+      const req = await fetch(`${BASE_API}/auth/logout`,{
+          method: 'POST',
+          headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({token})
+      });
+      const json = await req.json();
+      return json;
+    },
 
     getTypeManifestation: async () => {
         const token = await AsyncStorage.getItem('token');

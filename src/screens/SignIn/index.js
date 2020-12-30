@@ -24,7 +24,7 @@ export default () => {
     const {dispatch: userDispatch} = useContext(UserContext)
     const navigation = useNavigation();
 
-    const [emailField, setEmailField] = useState('teste');
+    const [emailField, setEmailField] = useState('');
     const [passwordField, setPassordField] = useState('');
 
     const handleMessageButtonClick = () => {
