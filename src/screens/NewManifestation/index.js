@@ -1,6 +1,5 @@
-import Api from '../../Api'
 import React, { useEffect, useState } from 'react'
-import { SectionList, Text } from 'react-native'
+
 import {
     Container,
     Scroller,

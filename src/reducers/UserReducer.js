@@ -2,15 +2,14 @@ import { ActionSheetIOS } from "react-native";
 
 export const initialState = {
     avatar: '',
-    favoritos: [],
-    appointments: []
+    manifest: []
 };
 
-export const UserReducer = (state,action) => {
+export const UserReducer = (state, action) => {
     switch (action.type) {
         case 'setAvatar':
             return { ...state, avatar: action.payload.avatar }
-        break;
+            break;
         default:
             return state;
     }

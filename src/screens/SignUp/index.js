@@ -1,5 +1,6 @@
 import React, { useState, useContext} from 'react'
 import {useNavigation} from '@react-navigation/native'
+import AsyncStorage from '@react-native-community/async-storage'
 import {
     Container,
     InputArea,
@@ -9,14 +10,15 @@ import {
     SignMessageButtonText,
     SignMessageButtonTextBold
 } from './styles'
+
 import Logo from '../../assets/logo.svg'
 import EmailIcon from '../../assets/email.svg'
 import LockIcon from '../../assets/lock.svg'
-import CpfIcon from '../../assets/cpf.svg'
+import UserIcon from '../../assets/user.svg'
+
 import SignInput from '../../components/SignInput'
-import Api from '../../Api'
-import AsyncStorage from '@react-native-community/async-storage'
 import {UserContext} from '../../contexts/UserContext'
+import Api from '../../Api'
 
 
 
@@ -69,7 +71,7 @@ export default () => {
 
             <InputArea>
 
-                <SignInput IconSvg={CpfIcon}
+                <SignInput IconSvg={UserIcon}
                     placeholder="Digite seu Nome"
                     value={nameField}
                     onChangeText={t => setNameField(t)}

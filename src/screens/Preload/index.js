@@ -1,16 +1,18 @@
 import React, { useEffect, useContext } from 'react'
-import { Container, LoadingIcon } from './styles'
+
 import AsyncStorage from '@react-native-community/async-storage'
 import { useNavigation } from '@react-navigation/native'
 
-import Logo from '../../assets/logo.svg'
+import { UserContext } from '../../contexts/UserContext'
+import { Container, LoadingIcon } from './styles'
 import Api from '../../Api'
-import {UserContext} from '../../contexts/UserContext'
+
+import Logo from '../../assets/logo.svg'
 
 
 export default () => {
 
-    const {dispatch: userDispatch} = useContext(UserContext)
+    const { dispatch: userDispatch } = useContext(UserContext)
 
     const navigation = useNavigation();
 

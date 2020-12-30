@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../contexts/UserContext'
 import styled from 'styled-components/native'
 
-import CpfIcon from '../assets/cpf.svg'
-import EmailIcon from '../assets/email.svg'
-import LockIcon from '../assets/lock.svg'
+import { UserContext } from '../contexts/UserContext'
+
+import ManifestIcon from '../assets/manifest.svg'
+import PlusIcon from '../assets/plus.svg'
+import LockIcon from '../assets/manifest.svg'
 
 
 const TabArea = styled.View`
@@ -48,16 +49,16 @@ export default ({ state, navigation }) => {
     return (
         <TabArea>
             <TabItem onPress={() => goTo('Manifestation')}>
-                <CpfIcon style={{ opacity: state.index === 0 ? 1 : 0.5 }}
+                <ManifestIcon style={{ opacity: state.index === 0 ? 1 : 0.5 }}
                     width="24" height="24" fill="#FFFFFF" />
             </TabItem>
             <TabItemCenter onPress={() => goTo('NewManifestation')}>
-                <EmailIcon width="32" height="32" fill="#4EADBE" />
+                <PlusIcon width="32" height="32" fill="#4EADBE" />
             </TabItemCenter>
             <TabItem onPress={() => goTo('Profile')}>
                 {user.avatar != '' ?
                     <AvatarIcon source={{ uri: user.avatar }} style={{ opacity: state.index === 2 ? 1 : 0.5 }}
-                    width="24" height="24" fill="#FFFFFF" />
+                        width="24" height="24" fill="#FFFFFF" />
                     :
                     <LockIcon style={{ opacity: state.index === 2 ? 1 : 0.5 }}
                         width="24" height="24" fill="#FFFFFF" />}

@@ -2,7 +2,6 @@ import React from 'react'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
 import CustonTabBar from '../components/CustonTabBar'
-
 import Manifestation from '../screens/Manifestation'
 import NewManifestation from '../screens/NewManifestation'
 import Profile from '../screens/Profile'
